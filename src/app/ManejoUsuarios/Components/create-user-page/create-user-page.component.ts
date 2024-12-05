@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../Services/user-services.service';
 import { User } from '../../Interfaces/user';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-user-page',
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './create-user-page.component.html',
-  styleUrl: './create-user-page.component.css',
-  providers: [UserService]
+  styleUrl: './create-user-page.component.css'
 })
-export class CreateUserPageComponent {
-  userForm!: FormGroup;
+export class CreateUserPageComponent implements OnInit {
+  private fb: FormBuilder = inject(FormBuilder);
+  private userService: UserService = inject(UserService);
+
+  userForm: FormGroup = new FormGroup({});
   apiResponse: string | null = null;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  ngOnInit(): void {
     this.userForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       correo: ['', [Validators.required, Validators.email]],
