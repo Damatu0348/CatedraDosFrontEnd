@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { UserListPageComponent } from "./ManejoUsuarios/Components/user-list-page/user-list-page.component";
+import { CreateUserPageComponent } from "./ManejoUsuarios/Components/create-user-page/create-user-page.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [ UserListPageComponent, CreateUserPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

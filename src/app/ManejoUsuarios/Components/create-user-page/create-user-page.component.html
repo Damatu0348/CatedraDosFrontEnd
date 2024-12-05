@@ -1,0 +1,67 @@
+<div class="container mx-auto mt-5">
+    <h1 class="text-2xl font-bold mb-4">Crear Usuario</h1>
+    <form [formGroup]="userForm" (ngSubmit)="createUser()" class="space-y-4">
+        <!-- Nombre -->
+      <div>
+        <label class="block font-medium">Nombre:</label>
+        <input
+          type="text"
+          formControlName="name"
+          class="w-full p-2 border rounded"
+          placeholder="Nombre del usuario"
+        />
+        <small class="text-red-500" *ngIf="userForm.get('nombre')?.invalid && userForm.get('nombre')?.touched">
+          El nombre es requerido y debe tener entre 3 y 20 caracteres.
+        </small>
+      </div>
+  
+      <!-- Correo -->
+      <div>
+        <label class="block font-medium">Correo:</label>
+        <input
+          type="email"
+          formControlName="email"
+          class="w-full p-2 border rounded"
+          placeholder="Correo electrónico"
+        />
+        <small class="text-red-500" *ngIf="userForm.get('correo')?.invalid && userForm.get('correo')?.touched">
+          Ingrese un correo válido.
+        </small>
+      </div>
+  
+      <!-- Fecha nacimiento -->
+      <div>
+        <label class="block font-medium">Fecha de Nacimiento:</label>
+        <input
+          type="date"
+          formControlName="birthDate"
+          class="w-full p-2 border rounded"
+        />
+        <small class="text-red-500" *ngIf="userForm.get('fechaNacimiento')?.invalid && userForm.get('fechaNacimiento')?.touched">
+          Ingrese una fecha válida anterior a hoy.
+        </small>
+      </div>
+  
+      <!-- Genero -->
+      <div>
+        <label class="block font-medium">Género:</label>
+        <select formControlName="gender" class="w-full p-2 border rounded">
+          <option value="" disabled selected>Seleccione un género</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <small class="text-red-500" *ngIf="userForm.get('genero')?.invalid && userForm.get('genero')?.touched">
+          Seleccione un género.
+        </small>
+      </div>
+  
+      <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">
+        Crear Usuario
+      </button>
+    </form>
+  
+    <p *ngIf="apiResponse" class="mt-4">{{ apiResponse }}</p>
+  </div>
+  
