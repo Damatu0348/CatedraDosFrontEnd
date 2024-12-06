@@ -26,6 +26,8 @@ npm install
 Ejecutar el servidor en el desarrollo
 ng serve
 
+Hacer ctrl+clic en el enlace  http://localhost:4200/
+
 # Caracterisiticas principales
 Listado de Usuarios: Visualiza todos los usuarios con su nombre, correo, fecha de nacimiento y género.
 Creación de Usuarios: Crear un nuevo usuario con las siguientes validaciones:
