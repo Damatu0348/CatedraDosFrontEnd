@@ -6,7 +6,7 @@
         <label class="block font-medium">Nombre:</label>
         <input
           type="text"
-          formControlName="name"
+          formControlName="nombre"
           class="w-full p-2 border rounded"
           placeholder="Nombre del usuario"
         />
@@ -20,7 +20,7 @@
         <label class="block font-medium">Correo:</label>
         <input
           type="email"
-          formControlName="email"
+          formControlName="correo"
           class="w-full p-2 border rounded"
           placeholder="Correo electrónico"
         />
@@ -34,7 +34,7 @@
         <label class="block font-medium">Fecha de Nacimiento:</label>
         <input
           type="date"
-          formControlName="birthDate"
+          formControlName="fechaNacimiento"
           class="w-full p-2 border rounded"
         />
         <small class="text-red-500" *ngIf="userForm.get('fechaNacimiento')?.invalid && userForm.get('fechaNacimiento')?.touched">
@@ -45,7 +45,7 @@
       <!-- Genero -->
       <div>
         <label class="block font-medium">Género:</label>
-        <select formControlName="gender" class="w-full p-2 border rounded">
+        <select formControlName="genero" class="w-full p-2 border rounded">
           <option value="" disabled selected>Seleccione un género</option>
           <option value="Femenino">Femenino</option>
           <option value="Masculino">Masculino</option>
